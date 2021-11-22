@@ -5,6 +5,8 @@ date: "11/22/2021"
 output: html_document
 ---
 
+Code: [GitHub](https://github.com/yongkokkhuen/pds-tutorial/blob/main/Tutorial-5.Rmd)
+
 Load "attitude" data set
 
 ```{r}
@@ -140,4 +142,3 @@ plot(x = df$privileges, y = df$learning, main = 'Learning Attitude', xlab = 'Pri
 
 dev.off()
 ```
-
