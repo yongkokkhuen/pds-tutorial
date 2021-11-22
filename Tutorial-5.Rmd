@@ -1,0 +1,143 @@
+---
+title: "Tutorial 5"
+author: "Yong Kok Khuen (17147279)"
+date: "11/22/2021"
+output: html_document
+---
+
+Load "attitude" data set
+
+```{r}
+library(datasets)
+df <- attitude
+```
+
+1. See basic descriptive statistics
+
+```{r}
+summary(df)
+```
+
+1. a) Difference between **attitude[3]** and **attitude$learning**
+
+```{r}
+attitude[3]
+```
+
+```{r}
+attitude$learning
+```
+
+```{r}
+typeof(attitude[3])
+```
+
+```{r}
+is.list(attitude[3])
+```
+
+```{r}
+typeof(attitude$learning)
+```
+
+```{r}
+is.vector(attitude$learning)
+```
+
+Answer: **attitude[3]** returns a list, **attitude$learning** returns a vector.
+
+2. Lists name of variables in a data set
+
+```{r}
+colnames(df)
+```
+
+3. Calculate number of rows in a data set
+
+```{r}
+nrow(df)
+```
+
+4. Calculate number of columns in a data set
+
+```{r}
+ncol(df)
+```
+
+5. List structure of a data set
+
+```{r}
+str(df)
+```
+
+6. See first 6 rows (by default) of data set
+
+```{r}
+head(df)
+```
+
+7.	See first n rows of data set (Select to see the first 15 rows of data set)
+
+```{r}
+head(df, n = 15)
+```
+
+8. See all rows but the last row
+
+```{r}
+df[-nrow(df), ]
+```
+
+9. See last 6 rows (by default) of a data set
+
+```{r}
+tail(df)
+```
+
+10. See last n rows of data set (Select to see the last 12 rows of data set)
+
+```{r}
+tail(df, n = 12)
+```
+
+11.	See the last n rows but the first row
+
+```{r}
+df[-1, ]
+```
+
+12.	Number of missing values
+```{r}
+sum(is.na(df))
+```
+
+```{r}
+colSums(is.na(df))
+```
+
+13. Number of missing values in a single variable
+
+```{r}
+sum(is.na(df$rating))
+```
+
+14.	Plot a simple graph, which will appear on a screen device.
+
+```{r}
+plot(x = df$rating, y = df$raises, main = 'Raises vs Rating', xlab = 'Rating', ylab = 'Raises')
+```
+
+15.	Plot the graph shown below, and make it appear on a file device (a pdf file)
+
+```{r}
+plot(x = df$privileges, y = df$learning, main = 'Learning Attitude', xlab = 'Privileges', ylab = 'Learning')
+```
+
+```{r}
+pdf(file = 'learning-attitude.pdf', width = 4, height = 4)
+
+plot(x = df$privileges, y = df$learning, main = 'Learning Attitude', xlab = 'Privileges', ylab = 'Learning')
+
+dev.off()
+```
+
